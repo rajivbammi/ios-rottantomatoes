@@ -12,6 +12,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var errorUILabel: UILabel!
+    
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
     
@@ -24,6 +26,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let request = NSURLRequest(URL: url!)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data:
             NSData!, error: NSError!) -> Void in
+            
+            if(data == nil) {
+                self.errorUILabel.hidden = false
+            }
+            
             let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? NSDictionary
             
             if let json = json {
@@ -77,10 +84,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)!
         
