@@ -1,7 +1,5 @@
 This is a movies app displaying box office and top rental DVDs using the Rotten Tomatoes API.
 
-Time spent: <Number of hours spent>
-
 Features
 Required
 
@@ -19,4 +17,5 @@ Optional
 [ ] For the large poster, load the low-res image first, switch to high-res when complete.
 [ ] Customize the highlight and selection effect of the cell.
 [ ] Customize the navigation bar.
-Walkthrough
+
+![Video Walkthrough](walkthrough.gif)
