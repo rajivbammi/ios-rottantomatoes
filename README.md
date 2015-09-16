@@ -1,8 +1,6 @@
 This is a movies app displaying box office and top rental DVDs using the Rotten Tomatoes API.
 
-Features
-Required
-
+Features Required
 [X] User can view a list of movies. Poster images load asynchronously.
 [X] User can view movie details by tapping on a cell.
 [X] User sees loading state while waiting for the API.
